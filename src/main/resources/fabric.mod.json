@@ -8,7 +8,9 @@
     "collectioncard",
     "Copetan"
   ],
-  "contact": {},
+  "contact": {
+    "homepage": "https://github.com/Team-Creative-Name/super-ultra-epic-mod"
+  },
   "license": "LGPL-3.0",
   "icon": "assets/super-ultra-epic-mod/icon.png",
   "environment": "*",
