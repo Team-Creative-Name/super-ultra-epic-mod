@@ -12,6 +12,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,15 +29,6 @@ public abstract class BoatMixin implements EntityAccessorMixin, BoatAccess
     private static final EntityDataAccessor<Boolean> ID_FOIL = SynchedEntityData.defineId(Boat.class, EntityDataSerializers.BOOLEAN);
 
     private BlockPos lastPos;
-
-    @Inject(
-          method = "<init>(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/level/Level;)V",
-          at = @At("TAIL")
-    )
-    public void addExtraEntityData(CallbackInfo ci) {
-        this.accessorGetEntityData().set(ID_FOIL, true);
-        this.accessorGetEntityData().set(ID_FROST_WALKER, (byte) 3);
-    }
 
     @Inject(
           method = "defineSynchedData",
@@ -61,9 +53,9 @@ public abstract class BoatMixin implements EntityAccessorMixin, BoatAccess
     )
     public void readEnchantmentSaveData(CompoundTag compoundTag, CallbackInfo ci) {
         if (compoundTag.contains("FrostWalker", Tag.TAG_BYTE)) {
-            var frostWalker = compoundTag.getByte("FrostWalker");
-            this.accessorGetEntityData().set(ID_FROST_WALKER, frostWalker);
-            this.accessorGetEntityData().set(ID_FOIL, frostWalker > 0);
+            var level = compoundTag.getByte("FrostWalker");
+            this.accessorGetEntityData().set(ID_FROST_WALKER, level);
+            this.accessorGetEntityData().set(ID_FOIL, level > 0);
         }
     }
 
@@ -112,6 +104,13 @@ public abstract class BoatMixin implements EntityAccessorMixin, BoatAccess
     @Override
     public boolean isFoil() {
         return this.accessorGetEntityData().get(ID_FOIL);
+    }
+
+    @Override
+    public void setEnchantment(ItemStack stack) {
+        int level = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FROST_WALKER, stack);
+        this.accessorGetEntityData().set(ID_FROST_WALKER, (byte) level);
+        this.accessorGetEntityData().set(ID_FOIL, level > 0);
     }
 
     private ItemStack getEnchantedStack(ItemLike itemLike) {
