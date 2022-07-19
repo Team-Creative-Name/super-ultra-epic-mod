@@ -2,6 +2,8 @@ package com.tcn.superultraepicmod.mixin;
 
 import com.tcn.superultraepicmod.access.BoatAccess;
 import com.tcn.superultraepicmod.mixin.accessor.EntityAccessorMixin;
+import com.tcn.superultraepicmod.util.FrostWalker;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -17,12 +19,15 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.include.com.google.common.base.Objects;
 
 @Mixin(Boat.class)
 public abstract class BoatMixin implements EntityAccessorMixin, BoatAccess
 {
     private static final EntityDataAccessor<Byte> ID_FROST_WALKER = SynchedEntityData.defineId(Boat.class, EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Boolean> ID_FOIL = SynchedEntityData.defineId(Boat.class, EntityDataSerializers.BOOLEAN);
+
+    private BlockPos lastPos;
 
     @Inject(
           method = "<init>(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/level/Level;)V",
@@ -82,6 +87,26 @@ public abstract class BoatMixin implements EntityAccessorMixin, BoatAccess
     )
     public ItemStack redirectItemStack(ItemLike itemLike) {
         return this.getEnchantedStack(itemLike);
+    }
+
+    @Inject(
+          method = "tick",
+          at = @At(
+                value = "INVOKE",
+                target = "Lnet/minecraft/world/entity/vehicle/Boat;tickLerp()V"
+          )
+    )
+    public void tickFrostWalker(CallbackInfo ci) {
+        if (!this.accessorGetLevel().isClientSide) {
+            BlockPos blockPos = this.invokerBlockPosition();
+            if (!Objects.equal(blockPos, this.lastPos)) {
+                this.lastPos = blockPos;
+                int i = this.accessorGetEntityData().get(ID_FROST_WALKER);
+                if (i > 0) {
+                    FrostWalker.onEntityMovedNonLiving((Boat) (Object) this, this.accessorGetLevel(), blockPos, i);
+                }
+            }
+        }
     }
 
     @Override
