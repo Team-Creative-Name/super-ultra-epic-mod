@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "W W",
+    "WWW",
+    "   "
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:crimson_planks"
+    }
+  },
+  "result": {
+    "item": "super-ultra-epic-mod:crimson_boat",
+    "count": 1
+  }
+}
