@@ -15,6 +15,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;
 
 public class SuperUltraEpicMod implements ModInitializer
@@ -51,7 +52,7 @@ public class SuperUltraEpicMod implements ModInitializer
 
            You can find the stats of all vanilla blocks in the class `Blocks`, where you can also reference other blocks.
         */
-        public static final Block ROTTENFLESH_BLOCK = new Block(FabricBlockSettings.of(Material.WEB).strength(0.6f));
+        public static final Block ROTTENFLESH_BLOCK = new Block(FabricBlockSettings.of(Material.WOOD).strength(0.6f).sound(SoundType.SLIME_BLOCK));
 
 
 
