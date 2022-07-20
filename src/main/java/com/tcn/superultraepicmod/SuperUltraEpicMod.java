@@ -25,9 +25,9 @@ public class SuperUltraEpicMod implements ModInitializer
     public void onInitialize() {
         Registry.register(Registry.ITEM, new ResourceLocation(MOD_ID, "crimson_boat"), CRIMSON_BOAT);
         Registry.register(Registry.ITEM, new ResourceLocation(MOD_ID, "warped_boat"), WARPED_BOAT);
-        Registry.register(Registry.ITEM, new ResourceLocation(MOD_ID, "flesh_block_drop"), new BlockItem(ROTTENFLESH_BLOCK, new FabricItemSettings().group(CREATIVE_TAB)));
+        Registry.register(Registry.ITEM, new ResourceLocation(MOD_ID, "flesh_block_drop"), new BlockItem(ROTTEN_FLESH_BLOCK, new FabricItemSettings().group(CREATIVE_TAB)));
         //start block registry
-        Registry.register(Registry.BLOCK, new ResourceLocation(MOD_ID, "flesh_block"), ROTTENFLESH_BLOCK);
+        Registry.register(Registry.BLOCK, new ResourceLocation(MOD_ID, "flesh_block"), ROTTEN_FLESH_BLOCK);
     }
 
     //Creative tabs
@@ -52,7 +52,7 @@ public class SuperUltraEpicMod implements ModInitializer
 
            You can find the stats of all vanilla blocks in the class `Blocks`, where you can also reference other blocks.
         */
-        public static final Block ROTTENFLESH_BLOCK = new Block(FabricBlockSettings.of(Material.WOOD).strength(0.6f).sound(SoundType.SLIME_BLOCK));
+        public static final Block ROTTEN_FLESH_BLOCK = new Block(FabricBlockSettings.of(Material.WOOD).strength(0.6f).sound(SoundType.SLIME_BLOCK));
 
 
 

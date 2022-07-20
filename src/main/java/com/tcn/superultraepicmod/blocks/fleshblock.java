@@ -1,4 +1,3 @@
-package com.tcn.superultraepicmod.blocks;
 
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.level.block.Block;
