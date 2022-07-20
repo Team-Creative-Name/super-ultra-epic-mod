@@ -21,7 +21,7 @@ public class BoatDispenseItemBehaviorMixin
           method = "execute",
           at = @At(
                 value = "INVOKE",
-                target = "Lnet/minecraft/world/entity/vehicle/Boat;setYRot(F)V"
+                target = "Lnet/minecraft/core/Direction;toYRot()F"
           ),
           locals = LocalCapture.CAPTURE_FAILHARD
     )

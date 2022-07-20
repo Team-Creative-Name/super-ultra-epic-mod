@@ -26,7 +26,7 @@ public class BoatItemMixin
           method = "use",
           at = @At(
                 value = "INVOKE",
-                target = "Lnet/minecraft/world/entity/vehicle/Boat;setYRot(F)V"
+                target = "Lnet/minecraft/world/entity/player/Player;getYRot()F"
           ),
           locals = LocalCapture.CAPTURE_FAILHARD
     )
