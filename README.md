@@ -7,7 +7,7 @@ We don't have many right now, but we currently have the following implemented:
  - Nether boats: Boats made out of the nether wood types.
 
 
-Want to see your (hopefully dumb) idea in this mod? Feel free to [leave a feature request via our issue tracker](https://github.com/Team-Creative-Name/super-ultra-epic-mod/issues/new) and if we like it enough it might get added!
+Want to see your (hopefully dumb) idea in this mod? Feel free to [leave a feature request via our issue tracker](https://github.com/Team-Creative-Name/super-ultra-epic-mod/issues/new/choose) and if we like it enough it might get added!
 
 
 ***
