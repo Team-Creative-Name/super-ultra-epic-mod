@@ -42,7 +42,4 @@ public class SuperUltraEpicMod implements ModInitializer
 
     //block instantiation
     public static final Block ROTTEN_FLESH_BLOCK = new Block(FabricBlockSettings.of(Material.WOOD).strength(0.6f).sound(SoundType.SLIME_BLOCK));
-
-
-
 }
