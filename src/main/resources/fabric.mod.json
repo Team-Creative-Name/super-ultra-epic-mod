@@ -3,13 +3,14 @@
   "id": "super-ultra-epic-mod",
   "version": "${version}",
   "name": "Super Ultra Epic Mod",
-  "description": "read the name",
+  "description": "A compilation of some of the most fun and cursed ideas we could come up with. We make no guarantees that anything here makes sense. \nIf you have any suggestions please feel free to add them to our issue tracker!",
   "authors": [
     "collectioncard",
     "Copetan"
   ],
   "contact": {
-    "homepage": "https://github.com/Team-Creative-Name/super-ultra-epic-mod"
+    "homepage": "https://github.com/Team-Creative-Name/super-ultra-epic-mod",
+    "issues": "https://github.com/Team-Creative-Name/super-ultra-epic-mod/issues/new/choose"
   },
   "license": "LGPL-3.0",
   "icon": "assets/super-ultra-epic-mod/icon.png",
