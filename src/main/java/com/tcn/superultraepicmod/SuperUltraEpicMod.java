@@ -19,7 +19,10 @@ public class SuperUltraEpicMod implements ModInitializer
     @Override
     public void onInitialize() {
         Registry.register(Registry.ITEM, new ResourceLocation(MOD_ID, "crimson_boat"), CRIMSON_BOAT);
+        Registry.register(Registry.ITEM, new ResourceLocation(MOD_ID, "crimson_chest_boat"), CRIMSON_CHEST_BOAT);
         Registry.register(Registry.ITEM, new ResourceLocation(MOD_ID, "warped_boat"), WARPED_BOAT);
+        Registry.register(Registry.ITEM, new ResourceLocation(MOD_ID, "warped_chest_boat"), WARPED_CHEST_BOAT);
+
     }
 
     //Creative tabs
@@ -30,7 +33,9 @@ public class SuperUltraEpicMod implements ModInitializer
 
     //item instantiations
     public static final Item CRIMSON_BOAT = new NetherBoatItem(false, Boat.Type.MANGROVE, new FabricItemSettings().group(CREATIVE_TAB).fireResistant().stacksTo(1));
+    public static final Item CRIMSON_CHEST_BOAT = new NetherBoatItem(true, Boat.Type.MANGROVE, new FabricItemSettings().group(CREATIVE_TAB).fireResistant().stacksTo(1));
     public static final Item WARPED_BOAT = new NetherBoatItem(false, Boat.Type.JUNGLE, new FabricItemSettings().group(CREATIVE_TAB).fireResistant().stacksTo(1));
+    public static final Item WARPED_CHEST_BOAT = new NetherBoatItem(true, Boat.Type.JUNGLE, new FabricItemSettings().group(CREATIVE_TAB).fireResistant().stacksTo(1));
 
     //block instantiation
 }
