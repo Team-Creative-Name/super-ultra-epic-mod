@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:rotten_flesh"
+    }
+  },
+  "result": {
+    "item": "super-ultra-epic-mod:flesh_block_drop",
+    "count": 1
+  }
+}
